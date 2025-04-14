@@ -12,7 +12,22 @@ class AppTree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("My App")),
+      appBar: AppBar(
+        title: const Text("My App"),
+        actions: [
+          IconButton(
+            icon: ValueListenableBuilder(
+              valueListenable: isDarkThemeNotifier,
+              builder: (context, isDark, child) {
+                return Icon(isDark ? Icons.light_mode : Icons.dark_mode);
+              },
+            ),
+            onPressed: () {
+              isDarkThemeNotifier.value = !isDarkThemeNotifier.value;
+            },
+          ),
+        ],
+      ),
       body: ValueListenableBuilder(
         valueListenable: selectedPageNotifier,
         builder: (context, selectedPage, child) {
