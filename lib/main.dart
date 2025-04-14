@@ -22,16 +22,22 @@ class _MyAppState extends State<MyApp> {
           title: const Text("My App"),
           backgroundColor: Colors.tealAccent.shade700,
         ),
-        body: const Center(child: Text("Hello World")),
-        bottomNavigationBar: BottomNavigationBar(
-          items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: "User"),
+        body:
+            selectedIndex == 0
+                ? Center(child: Text("Home page"))
+                : Center(child: Text("Profile page")),
+        bottomNavigationBar: NavigationBar(
+          destinations: [
+            NavigationDestination(icon: Icon(Icons.home), label: "Home"),
+            NavigationDestination(icon: Icon(Icons.person), label: "Profiles"),
           ],
-          onTap: (value) => setState(() => selectedIndex = value),
+          onDestinationSelected: (int index) {
+            setState(() {
+              selectedIndex = index;
+            });
+          },
+          selectedIndex: selectedIndex,
           backgroundColor: Colors.tealAccent.shade700,
-          selectedItemColor: Colors.white,
-          currentIndex: selectedIndex,
         ),
       ),
     );
