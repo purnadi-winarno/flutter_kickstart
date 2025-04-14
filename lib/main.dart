@@ -17,11 +17,15 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("My App"),
-          backgroundColor: Colors.tealAccent.shade700,
+      theme: ThemeData.from(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.teal,
+          brightness: Brightness.dark,
         ),
+      ),
+      home: Scaffold(
+        appBar: AppBar(title: const Text("My App")),
+
         body:
             selectedIndex == 0
                 ? Center(child: Text("Home page"))
@@ -37,7 +41,6 @@ class _MyAppState extends State<MyApp> {
             });
           },
           selectedIndex: selectedIndex,
-          backgroundColor: Colors.tealAccent.shade700,
         ),
       ),
     );
