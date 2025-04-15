@@ -12,6 +12,14 @@ class _ProfilePageState extends State<ProfilePage> {
   TextEditingController nameController = TextEditingController();
   bool isChecked = false;
   bool isCheckedListTile = false;
+  bool isSwitched = false;
+
+  void onChangedSwitch(bool value) {
+    setState(() {
+      isSwitched = value;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -63,6 +71,14 @@ class _ProfilePageState extends State<ProfilePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [Text("is Checked List Tile: $isCheckedListTile")],
+          ),
+          Row(
+            children: [Switch(value: isSwitched, onChanged: onChangedSwitch)],
+          ),
+          SwitchListTile(
+            title: Text("Switch List Tile"),
+            value: isSwitched,
+            onChanged: onChangedSwitch,
           ),
         ],
       ),
