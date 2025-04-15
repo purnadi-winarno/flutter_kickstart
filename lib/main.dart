@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_start/data/notifiers.dart';
 import 'package:flutter_start/views/app_tree.dart';
+import 'package:flutter_start/views/pages/detail_page.dart';
 import 'package:flutter_start/views/pages/setting_page.dart';
 
 void main() {
@@ -29,7 +30,10 @@ class _MyAppState extends State<MyApp> {
             ),
           ),
           home: AppTree(),
-          routes: {'/settings': (context) => const SettingPage()},
+          routes: {
+            '/settings': (context) => const SettingPage(),
+            '/detail': (context) => const DetailPage(),
+          },
         );
       },
     );
