@@ -86,6 +86,18 @@ class HomePage extends StatelessWidget {
               onPressed: onShowConfirmationModal,
               child: Text("Open Confirmation Modal"),
             ),
+            FittedBox(
+              //make text or it's child fit in screen
+              child: Text(
+                "Hello Flutter",
+                style: TextStyle(
+                  fontSize: 50,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.teal,
+                  letterSpacing: 20,
+                ),
+              ),
+            ),
           ],
         ),
       ),
