@@ -26,6 +26,12 @@ class AppTree extends StatelessWidget {
               isDarkThemeNotifier.value = !isDarkThemeNotifier.value;
             },
           ),
+          IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () {
+              Navigator.pushNamed(context, "/settings");
+            },
+          ),
         ],
       ),
       body: ValueListenableBuilder(
