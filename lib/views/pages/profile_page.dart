@@ -13,10 +13,17 @@ class _ProfilePageState extends State<ProfilePage> {
   bool isChecked = false;
   bool isCheckedListTile = false;
   bool isSwitched = false;
+  double sliderValue = 0.0;
 
   void onChangedSwitch(bool value) {
     setState(() {
       isSwitched = value;
+    });
+  }
+
+  void onChangedSlider(double value) {
+    setState(() {
+      sliderValue = value;
     });
   }
 
@@ -81,6 +88,13 @@ class _ProfilePageState extends State<ProfilePage> {
             title: Text("Switch List Tile"),
             value: isSwitched,
             onChanged: onChangedSwitch,
+          ),
+          Slider(
+            max: 100,
+            divisions: 10,
+            activeColor: Colors.lightGreenAccent,
+            value: sliderValue,
+            onChanged: onChangedSlider,
           ),
         ],
       ),
