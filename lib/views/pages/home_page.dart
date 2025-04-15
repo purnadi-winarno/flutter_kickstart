@@ -6,12 +6,36 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void onShowSnackBar() {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          duration: Duration(seconds: 1),
+          backgroundColor: Colors.green,
+          content: Row(
+            children: [
+              Icon(Icons.check_circle, color: Colors.white),
+              SizedBox(width: 8),
+              Text("Here's snackbar"),
+            ],
+          ),
+        ),
+      );
+    }
+
     return Center(
       child: GestureDetector(
         onTap: () {
           Navigator.pushNamed(context, '/detail');
         },
-        child: HeroWidget(),
+        child: Column(
+          children: [
+            HeroWidget(),
+            ElevatedButton(
+              onPressed: onShowSnackBar,
+              child: Text("Show Snackbar"),
+            ),
+          ],
+        ),
       ),
     );
   }
