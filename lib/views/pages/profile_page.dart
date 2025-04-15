@@ -97,7 +97,12 @@ class _ProfilePageState extends State<ProfilePage> {
               value: sliderValue,
               onChanged: onChangedSlider,
             ),
-            Image.asset("assets/images/animal.jpg"),
+            GestureDetector(
+              onTap: () {
+                print("Image pressed");
+              },
+              child: Image.asset("assets/images/animal.jpg"),
+            ),
           ],
         ),
       ),
