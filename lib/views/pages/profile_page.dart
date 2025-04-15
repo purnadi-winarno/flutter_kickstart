@@ -97,11 +97,22 @@ class _ProfilePageState extends State<ProfilePage> {
               value: sliderValue,
               onChanged: onChangedSlider,
             ),
-            GestureDetector(
+            InkWell(
+              splashColor: Colors.red,
               onTap: () {
-                print("Image pressed");
+                print("box pressed");
               },
-              child: Image.asset("assets/images/animal.jpg"),
+              borderRadius: BorderRadius.circular(
+                10,
+              ), //don't forget this too -> as BoxDecoration size
+              child: Container(
+                width: double.infinity,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: Colors.white12,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
             ),
           ],
         ),
