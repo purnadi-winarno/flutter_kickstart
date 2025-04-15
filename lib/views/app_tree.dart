@@ -29,7 +29,11 @@ class AppTree extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.settings),
             onPressed: () {
-              Navigator.pushNamed(context, "/settings");
+              Navigator.pushNamed(
+                context,
+                "/settings",
+                arguments: {'userId': 1, 'username': "admin"},
+              );
             },
           ),
         ],
