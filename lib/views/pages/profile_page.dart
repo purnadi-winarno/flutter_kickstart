@@ -73,7 +73,9 @@ class _ProfilePageState extends State<ProfilePage> {
             children: [Text("is Checked List Tile: $isCheckedListTile")],
           ),
           Row(
-            children: [Switch(value: isSwitched, onChanged: onChangedSwitch)],
+            children: [
+              Switch.adaptive(value: isSwitched, onChanged: onChangedSwitch),
+            ],
           ),
           SwitchListTile(
             title: Text("Switch List Tile"),
