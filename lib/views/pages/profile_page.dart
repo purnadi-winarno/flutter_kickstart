@@ -14,6 +14,7 @@ class _ProfilePageState extends State<ProfilePage> {
   bool isCheckedListTile = false;
   bool isSwitched = false;
   double sliderValue = 0.0;
+  String? dropdownValue;
 
   void onChangedSwitch(bool value) {
     setState(() {
@@ -30,6 +31,13 @@ class _ProfilePageState extends State<ProfilePage> {
   void onButtonPressed(String buttonType) {
     print("$buttonType button pressed");
   }
+
+  // Change the type declaration from List<Widget> to List<DropdownMenuItem<String>>
+  List<DropdownMenuItem<String>> dropdownItems = [
+    DropdownMenuItem(value: "Option 1", child: Text("Option 1")),
+    DropdownMenuItem(value: "Option 2", child: Text("Option 2")),
+    DropdownMenuItem(value: "Option 3", child: Text("Option 3")),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -143,6 +151,31 @@ class _ProfilePageState extends State<ProfilePage> {
                 CloseButton(onPressed: () => onButtonPressed("Close")),
                 BackButton(onPressed: () => onButtonPressed("Back")),
               ],
+            ),
+            Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: DropdownButton<String>(
+                value: dropdownValue,
+                items: dropdownItems,
+                onChanged: (String? value) {
+                  setState(() {
+                    dropdownValue = value;
+                  });
+                },
+                isExpanded: true,
+                icon: const Icon(
+                  Icons.arrow_drop_down_circle,
+                  color: Colors.deepPurple,
+                ),
+                underline: Container(), // removes the default underline
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                borderRadius: BorderRadius.circular(8),
+                hint: const Text('Select an option'),
+              ),
             ),
           ],
         ),
