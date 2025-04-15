@@ -27,6 +27,10 @@ class _ProfilePageState extends State<ProfilePage> {
     });
   }
 
+  void onButtonPressed(String buttonType) {
+    print("$buttonType button pressed");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -113,6 +117,32 @@ class _ProfilePageState extends State<ProfilePage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
+            ),
+            Wrap(
+              children: [
+                ElevatedButton(
+                  onPressed: () => onButtonPressed("Elevated"),
+                  child: Text("Elevated Button"),
+                ),
+                FilledButton(
+                  style: FilledButton.styleFrom(
+                    backgroundColor: Colors.lightGreenAccent,
+                    foregroundColor: Colors.black,
+                  ),
+                  onPressed: () => onButtonPressed("Filled"),
+                  child: Text("Filled Button"),
+                ),
+                OutlinedButton(
+                  onPressed: () => onButtonPressed("Outline"),
+                  child: Text("Outline Button"),
+                ),
+                TextButton(
+                  onPressed: () => onButtonPressed("Text"),
+                  child: Text("Text Button"),
+                ),
+                CloseButton(onPressed: () => onButtonPressed("Close")),
+                BackButton(onPressed: () => onButtonPressed("Back")),
+              ],
             ),
           ],
         ),
