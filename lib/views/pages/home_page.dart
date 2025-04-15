@@ -60,6 +60,28 @@ class HomePage extends StatelessWidget {
               onPressed: onShowSnackBar,
               child: Text("Show Snackbar"),
             ),
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Title",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.teal,
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      "this is a description text example. Please learn more about it. Flutter is very cool. You should learn it in 2025 if you want to be a cool mobile developer.",
+                    ),
+                  ],
+                ),
+              ),
+            ),
             ElevatedButton(
               onPressed: onShowConfirmationModal,
               child: Text("Open Confirmation Modal"),
