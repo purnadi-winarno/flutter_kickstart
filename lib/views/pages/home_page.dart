@@ -22,6 +22,32 @@ class HomePage extends StatelessWidget {
       );
     }
 
+    void onShowConfirmationModal() {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text("Confirmation"),
+            content: Text("Are you sure want to delete this item?"),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text("Cancel"),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text("Delete"),
+              ),
+            ],
+          );
+        },
+      );
+    }
+
     return Center(
       child: GestureDetector(
         onTap: () {
@@ -33,6 +59,10 @@ class HomePage extends StatelessWidget {
             ElevatedButton(
               onPressed: onShowSnackBar,
               child: Text("Show Snackbar"),
+            ),
+            ElevatedButton(
+              onPressed: onShowConfirmationModal,
+              child: Text("Open Confirmation Modal"),
             ),
           ],
         ),
